@@ -1,4 +1,4 @@
-package com.younes_belouche.domain.models
+package com.younes_belouche.data.models
 
 
 import com.google.gson.annotations.SerializedName
