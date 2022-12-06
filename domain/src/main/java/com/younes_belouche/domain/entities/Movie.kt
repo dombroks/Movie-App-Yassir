@@ -1,8 +1,8 @@
 package com.younes_belouche.domain.entities
 
 data class Movie (
-    val poster_path : String,
+    var poster_path : String,
     val id : Int,
-    val title : String,
-    val overview : String,
+    var title : String,
+    var overview : String,
 )
