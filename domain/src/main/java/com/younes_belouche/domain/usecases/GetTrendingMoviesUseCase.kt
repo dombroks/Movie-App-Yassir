@@ -7,7 +7,7 @@ import com.younes_belouche.domain.utils.Resource
 class GetTrendingMoviesUseCase(
     private val moviesRepository: MoviesRepository
 ) {
-    suspend operator fun invoke(): Resource<List<Movie>> {
+    suspend fun execute(): Resource<List<Movie>> {
         return moviesRepository.getTrendingMovies();
     }
 }

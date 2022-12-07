@@ -4,5 +4,6 @@ data class Movie (
     var poster_path : String,
     val id : Int,
     var title : String,
+    var year: String,
     var overview : String,
 )

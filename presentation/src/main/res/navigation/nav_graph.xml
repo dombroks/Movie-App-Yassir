@@ -9,5 +9,18 @@
         android:id="@+id/moviesList"
         android:name="com.younes_belouche.movieappyassir.ui.movies_list.MoviesList"
         android:label="fragment_movies_list"
-        tools:layout="@layout/fragment_movies_list" />
+        tools:layout="@layout/fragment_movies_list" >
+        <action
+            android:id="@+id/action_moviesList_to_movieDetails"
+            app:destination="@id/movieDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetails"
+        android:name="com.younes_belouche.movieappyassir.ui.movie_details.MovieDetails"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
+        <action
+            android:id="@+id/action_movieDetails_to_moviesList"
+            app:destination="@id/moviesList" />
+    </fragment>
 </navigation>

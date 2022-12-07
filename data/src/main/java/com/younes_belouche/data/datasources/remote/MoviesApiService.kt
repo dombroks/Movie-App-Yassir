@@ -8,14 +8,14 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieApiService {
-    @GET("discover/movies")
+    @GET("discover/movie")
     suspend fun getTrendingMovies(
         @Query("api_key") apiKey: String = "c9856d0cb57c3f14bf75bdc6c063b8f3"
     ): Response<Trending>
 
-    @GET("movies/{movie_id}")
+    @GET("movie/{movie_id}")
     suspend fun getMovie(
-        @Query("api_key") apiKey: String = "c9856d0cb57c3f14bf75bdc6c063b8f3",
-        @Path("movie_id") movieId: Long? = null,
+        @Path("movie_id") movieId: Long? = 1L,
+        @Query("api_key") apiKey: String = "c9856d0cb57c3f14bf75bdc6c063b8f3"
     ): Response<Result>
 }

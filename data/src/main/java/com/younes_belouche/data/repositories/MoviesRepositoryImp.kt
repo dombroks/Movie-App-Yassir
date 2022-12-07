@@ -1,6 +1,7 @@
 package com.younes_belouche.data.repositories
 
 
+import android.util.Log
 import com.younes_belouche.data.datasources.remote.MovieApiService
 import com.younes_belouche.domain.entities.Movie
 import com.younes_belouche.domain.repositories.MoviesRepository;
@@ -19,7 +20,8 @@ class MoviesRepositoryImp(
                             title = it.title,
                             id = it.id,
                             poster_path = it.posterPath as String,
-                            overview = it.overview
+                            overview = it.overview,
+                            year = it.releaseDate
                         )
                     }
                 )
@@ -29,19 +31,23 @@ class MoviesRepositoryImp(
     }
 
     override suspend fun getMovie(movieId: Long): Resource<Movie> {
+
         val response = moviesApiService.getMovie(movieId = movieId);
         if (response.isSuccessful) {
+
             response.body()?.let {
                 return Resource.success(
                     Movie(
                         id = it.id,
                         title = it.title,
                         overview = it.overview,
-                        poster_path = it.posterPath.toString()
+                        poster_path = it.posterPath.toString(),
+                        year = it.releaseDate
                     )
                 )
             }
         }
+
         return Resource.error("Something went wrong", null);
     }
 }
